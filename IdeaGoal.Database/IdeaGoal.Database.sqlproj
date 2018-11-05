@@ -73,6 +73,8 @@
   <ItemGroup>
     <None Include="IdeaGoal.Database.publish.xml" />
     <None Include="publish.bat" />
+    <None Include="update.ps1" />
+    <None Include="Test.bat" />
   </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent>
