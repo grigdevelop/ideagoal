@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
+using IdeaGoal.Domain.Core.Data;
 
 namespace IdeaGoal.Domain.UnitTests.Utilities
 {
     public class DbHelper
     {
-        public DbHelper()
+        public static void CleanDb(IdeaGoalDbContext db)
         {
-           
-            
+            db.UserTokens.RemoveRange(db.UserTokens.ToList());
+            db.SaveChanges();
+
+            db.Users.RemoveRange(db.Users.ToList());
+            db.SaveChanges();            
         }
 
         public static void Execute()
