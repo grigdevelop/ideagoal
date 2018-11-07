@@ -2,8 +2,7 @@
 
 namespace IdeaGoal.Domain.Core.Entities
 {
-    //[Table("[dbo].[Users]")]
-    public class User
+    public class User : IEntity
     {
         public int Id { get; set; }
 

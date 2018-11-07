@@ -6,6 +6,7 @@ using IdeaGoal.Domain.Services.Ideas;
 using IdeaGoal.Domain.Services.Security;
 using IdeaGoal.Domain.Services.Utilities;
 using IdeaGoal.Domain.UnitTests.Mock.Services;
+using IdeaGoal.Domain.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -28,6 +29,8 @@ namespace IdeaGoal.Domain.UnitTests.Core
             serviceCollection.AddScoped<IdeasService>();
 
             _serviceProvider = serviceCollection.BuildServiceProvider();
+
+            MapperExtensions.Configure();
         }
 
         protected TService GetService<TService>()
