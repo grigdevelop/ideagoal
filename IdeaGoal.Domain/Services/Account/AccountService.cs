@@ -9,6 +9,7 @@ using IdeaGoal.Domain.Core.Data.Repo;
 using IdeaGoal.Domain.Core.Entities;
 using IdeaGoal.Domain.Services.Account.Dto;
 using IdeaGoal.Domain.Services.Security;
+using IdeaGoal.Domain.Utilities;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace IdeaGoal.Domain.Services.Account
@@ -39,7 +40,7 @@ namespace IdeaGoal.Domain.Services.Account
         {
             string encPas = _encryptService.Encrypt(input.Password, AUTH_ENC_KEY);
             var user = _userRepository.Table.FirstOrDefault(x =>
-                x.Username == input.Username && x.PasswordHash == encPas);
+                x.Username == input.Username && x.PasswordHash == encPas).ToEntityDto<UserDto>();
 
             if(user == null)
                 throw new AuthenticationException("User not authorized");
@@ -87,8 +88,8 @@ namespace IdeaGoal.Domain.Services.Account
         }
 
 
-        private User _currentUser;
-        public User CurrentUser
+        private UserDto _currentUser;
+        public UserDto CurrentUser
         {
             get
             {
@@ -98,7 +99,8 @@ namespace IdeaGoal.Domain.Services.Account
 
                     _currentUser = 
                         _userRepository.Table
-                            .FirstOrDefault(x => x.Username == _authService.User.Identity.Name);
+                            .FirstOrDefault(x => x.Username == _authService.User.Identity.Name)
+                            .ToEntityDto<UserDto>();
                 }
 
                 return _currentUser;

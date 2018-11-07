@@ -4,7 +4,7 @@ using System.Text;
 
 namespace IdeaGoal.Domain.Core.Entities
 {
-    public class UserToken
+    public class UserToken : IEntity
     {
         public int Id { get; set; }
 

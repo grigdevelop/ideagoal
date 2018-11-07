@@ -1,5 +1,6 @@
 ﻿using IdeaGoal.Domain.Core.Data.Repo;
 using IdeaGoal.Domain.Core.Entities;
+using IdeaGoal.Domain.Services.Account.Dto;
 using System;
 using System.Linq;
 using System.Security.Authentication;
@@ -15,7 +16,7 @@ namespace IdeaGoal.Domain.Services.Account
             _userTokenRepository = userTokenRepository;
         }
 
-        public string GenerateTokenForUser(User user)
+        public string GenerateTokenForUser(UserDto user)
         {
             string token = Guid.NewGuid().ToString();
             UserToken ut = new UserToken { Token = token, UserId = user.Id };
