@@ -64,7 +64,7 @@ namespace IdeaGoal.Domain.Services.Ideas
             return _ideaRepository.Table.Select(x => x.ToEntityDto<IdeaDto>()).ToList();
         }
 
-        private IdeaDto GetById(int id)
+        public IdeaDto GetById(int id)
         {
             return GetEntityById(id).ToEntityDto<IdeaDto>();
         }

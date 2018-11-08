@@ -12,5 +12,7 @@ namespace IdeaGoal.Domain.Services.Ideas
         void DeleteIdea(DeleteIdeaDto input);
 
         List<IdeaDto> GetUserIdeas();
+
+        IdeaDto GetById(int id);
     }
 }

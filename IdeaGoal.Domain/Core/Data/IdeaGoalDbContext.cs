@@ -16,5 +16,7 @@ namespace IdeaGoal.Domain.Core.Data
         public DbSet<UserToken> UserTokens { get; set; }
 
         public DbSet<Idea> Ideas { get; set; }
+
+        public DbSet<Component> Components { get; set; }
     }
 }

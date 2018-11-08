@@ -3,6 +3,7 @@ using IdeaGoal.Domain.Services.Dto;
 using AutoMapper;
 using IdeaGoal.Domain.Services.Account.Dto;
 using IdeaGoal.Domain.Services.Ideas.Dto;
+using IdeaGoal.Domain.Services.Components.Dto;
 
 namespace IdeaGoal.Domain.Utilities
 {
@@ -27,9 +28,11 @@ namespace IdeaGoal.Domain.Utilities
                 cfg.CreateMap<User, UserDto>();
                 cfg.CreateMap<UserDto, User>();
 
-
                 cfg.CreateMap<Idea, IdeaDto>();
                 cfg.CreateMap<IdeaDto, Idea>();
+
+                cfg.CreateMap<Component, ComponentDto>();
+                cfg.CreateMap<ComponentDto, Component>();
             });
         }
     }

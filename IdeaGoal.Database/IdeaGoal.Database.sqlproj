@@ -71,6 +71,7 @@
     <Build Include="StoredProcedures\dbo.sp_GetUsers.sql" />
     <Build Include="Tables\UserTokens.sql" />
     <Build Include="Tables\Ideas.sql" />
+    <Build Include="Tables\Components.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IdeaGoal.Database.publish.xml" />
