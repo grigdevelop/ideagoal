@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace IdeaGoal.Domain.Services.Account
 {
-    public class AccountService
+    public class AccountService : IAccountService
     {
         public const string AUTH_ENC_KEY = "supersecretpassword";
         private const string AUTH_USER_KEY = "AUTH_USER_XXX";
