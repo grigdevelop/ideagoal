@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Ideas]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Title] NVARCHAR(MAX) NOT NULL,
+	[Description] NVARCHAR(MAX),
+	[UserId] INT NOT NULL,
+
+	FOREIGN KEY (UserId) REFERENCES Users(Id)
+)

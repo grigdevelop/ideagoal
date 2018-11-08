@@ -15,17 +15,17 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace IdeaGoal.Domain.UnitTests.Account
 {
     [TestClass]
-    public class AccountTests : TestBaseDb
+    public class AccountTests : TestBase
     {
-        private AccountService _accountService;
+        private IAccountService _accountService;
 
-        [TestInitialize()]
+        [TestInitialize]
         public void Init()
         {
             var db = GetService<IdeaGoalDbContext>();
             DbHelper.CleanDb(db);
 
-            _accountService = GetService<AccountService>();
+            _accountService = GetService<IAccountService>();
         }
 
         [TestMethod]
@@ -49,16 +49,7 @@ namespace IdeaGoal.Domain.UnitTests.Account
         {
             Action login = () => _accountService.Login(new LoginDto { Username = "Grigor", Password = "password" });
             login.Should().Throw<AuthenticationException>().WithMessage("User not authorized");
-        }
-
-        [TestMethod]
-        public void Should_Work()
-        {
-            LoginUser();
-
-            var ideService = GetService<IdeasService>();
-            ideService.CreateIdea();
-        }
+        }       
 
         private void LoginUser()
         {

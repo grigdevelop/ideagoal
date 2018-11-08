@@ -14,6 +14,9 @@ namespace IdeaGoal.Domain.UnitTests.Utilities
             db.UserTokens.RemoveRange(db.UserTokens.ToList());
             db.SaveChanges();
 
+            db.Ideas.RemoveRange(db.Ideas.ToList());
+            db.SaveChanges();
+
             db.Users.RemoveRange(db.Users.ToList());
             db.SaveChanges();            
         }
